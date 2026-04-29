@@ -1,0 +1,24 @@
+.DS_Store
+Thumbs.db
+
+# Editor and local project files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+tmp/
+temp/
+.cache/
+
+# Dependency folders if this project is later expanded
+node_modules/
+dist/
+build/
