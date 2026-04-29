@@ -2,6 +2,8 @@
 
 Image Forge is a static, browser-only image converter. It converts common image formats directly in the visitor's browser and can be hosted with GitHub Pages.
 
+Website: https://angzeli.github.io/image-forge/
+
 ## ✨ Features
 
 - Convert JPG, JPEG, PNG, PDF, SVG, HEIC, HEIF, TIFF, and best-effort RAW files.
