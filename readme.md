@@ -6,8 +6,8 @@ Website: https://angzeli.github.io/image-forge/
 
 ## ✨ Features
 
-- Convert JPG, JPEG, PNG, PDF, SVG, HEIC, HEIF, TIFF, and best-effort RAW files.
-- Export to PNG, JPG, JPEG, PDF, SVG, or TIF.
+- Convert JPG, JPEG, PNG, WebP, PDF, SVG, HEIC, HEIF, TIFF, and best-effort RAW files.
+- Export to PNG, JPG, JPEG, WebP, PDF, SVG, or TIF.
 - Resize output by pixels, centimeters, or percentage.
 - Lock or unlock aspect ratio while editing width and height.
 - Convert multiple files and package batch outputs into a ZIP.

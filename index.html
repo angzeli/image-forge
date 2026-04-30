@@ -4,7 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Image Forge Converter</title>
-  <meta name="description" content="Convert JPG, PNG, JPEG, PDF, SVG, HEIC, HEIF, RAW, and TIFF images directly in your browser.">
+  <meta name="description" content="Convert JPG, PNG, JPEG, WebP, PDF, SVG, HEIC, HEIF, RAW, and TIFF images directly in your browser.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
@@ -64,9 +65,9 @@
     }
 
     .shell {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 32px 0 48px;
+      padding: 30px 0 44px;
     }
 
     .topbar {
@@ -74,7 +75,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      margin-bottom: 44px;
+      margin-bottom: 28px;
     }
 
     .brand {
@@ -106,17 +107,10 @@
     }
 
     .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1.08fr);
-      gap: 34px;
-      align-items: stretch;
-    }
-
-    .hero-copy {
       position: relative;
       overflow: hidden;
-      min-height: 650px;
-      padding: clamp(28px, 5vw, 56px);
+      margin-bottom: 24px;
+      padding: clamp(28px, 5vw, 46px);
       border: 1px solid rgba(33, 28, 24, 0.12);
       border-radius: var(--radius-xl);
       background:
@@ -125,12 +119,12 @@
       box-shadow: var(--shadow);
     }
 
-    .hero-copy::after {
+    .hero::after {
       position: absolute;
-      right: -84px;
-      bottom: -128px;
-      width: 330px;
-      height: 330px;
+      right: -72px;
+      bottom: -148px;
+      width: 300px;
+      height: 300px;
       content: "";
       border: 1px solid rgba(33, 28, 24, 0.11);
       border-radius: 50%;
@@ -140,9 +134,9 @@
     h1 {
       position: relative;
       z-index: 1;
-      max-width: 10ch;
-      margin: 0 0 22px;
-      font-size: clamp(3.4rem, 7.6vw, 7rem);
+      max-width: 12ch;
+      margin: 0 0 16px;
+      font-size: clamp(3.1rem, 7vw, 6rem);
       font-weight: 700;
       line-height: 0.88;
       letter-spacing: -0.075em;
@@ -151,20 +145,59 @@
     .lead {
       position: relative;
       z-index: 1;
-      max-width: 31rem;
+      max-width: 46rem;
       margin: 0;
       color: var(--muted);
       font-size: clamp(1.12rem, 2vw, 1.38rem);
       line-height: 1.58;
     }
 
-    .feature-strip {
+    .trust-chips {
       position: relative;
       z-index: 1;
-      display: grid;
-      gap: 12px;
-      max-width: 34rem;
-      margin-top: 46px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .trust-chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
+      padding: 0 12px;
+      color: var(--accent-dark);
+      border: 1px solid rgba(33, 28, 24, 0.1);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.58);
+      font-family: Optima, Candara, "Avenir Next", sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .feature-library {
+      margin-top: 24px;
+    }
+
+    .feature-library-head {
+      max-width: 42rem;
+      margin-bottom: 14px;
+    }
+
+    .feature-library-head h2 {
+      margin: 0 0 6px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .feature-library-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.03rem;
+      line-height: 1.45;
     }
 
     .feature {
@@ -201,20 +234,8 @@
       line-height: 1.45;
     }
 
-    .author-credit {
-      position: relative;
-      z-index: 1;
-      width: fit-content;
-      margin: 16px 0 0;
-      padding: 8px 12px;
-      color: var(--accent-dark);
-      border: 1px solid rgba(33, 28, 24, 0.1);
-      border-radius: 999px;
-      background: rgba(255, 253, 248, 0.44);
-      font-family: Optima, Candara, "Avenir Next", sans-serif;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+    .workbench-section {
+      margin-top: 24px;
     }
 
     .converter {
@@ -228,6 +249,60 @@
       backdrop-filter: blur(16px);
     }
 
+    .workbench-header {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .workbench-title {
+      margin: 0 0 6px;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 0.95;
+      letter-spacing: -0.055em;
+    }
+
+    .workbench-subtitle {
+      max-width: 35rem;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.45;
+    }
+
+    .workbench-mark {
+      display: grid;
+      width: 56px;
+      height: 56px;
+      flex: 0 0 auto;
+      place-items: center;
+      color: #fffdf8;
+      border-radius: 18px;
+      background: conic-gradient(from 210deg, var(--accent), var(--gold), var(--sage), var(--accent));
+      box-shadow: 0 16px 30px rgba(143, 55, 29, 0.18);
+      font-family: Optima, Candara, "Avenir Next", sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+    }
+
+    .workbench-layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(300px, 0.95fr) minmax(340px, 1.05fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .upload-column,
+    .control-column {
+      min-width: 0;
+    }
+
     .converter::before {
       position: absolute;
       inset: 0 0 auto;
@@ -238,7 +313,7 @@
 
     .dropzone {
       display: grid;
-      min-height: 214px;
+      min-height: 260px;
       place-items: center;
       padding: 28px;
       text-align: center;
@@ -377,9 +452,9 @@
 
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 14px;
-      margin-top: 22px;
+      margin-top: 0;
     }
 
     .field {
@@ -734,7 +809,7 @@
 
     .preview-wrap {
       overflow: hidden;
-      margin-top: 22px;
+      margin-top: 18px;
       border: 1px solid rgba(33, 28, 24, 0.12);
       border-radius: 22px;
       background: #fff;
@@ -787,7 +862,7 @@
 
     .notes {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
       margin-top: 22px;
     }
@@ -812,23 +887,37 @@
       line-height: 1.45;
     }
 
-    @media (max-width: 920px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px 18px;
+      margin-top: 28px;
+      padding-top: 22px;
+      color: var(--muted);
+      border-top: 1px solid rgba(33, 28, 24, 0.12);
+      font-family: Optima, Candara, "Avenir Next", sans-serif;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
 
-      .hero-copy {
-        min-height: auto;
+    @media (max-width: 920px) {
+      .workbench-layout {
+        grid-template-columns: 1fr;
       }
 
       h1 {
         max-width: 12ch;
       }
+
+      .notes {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 680px) {
       .shell {
-        width: min(100% - 22px, 1120px);
+        width: min(100% - 22px, 1180px);
         padding-top: 18px;
       }
 
@@ -842,7 +931,7 @@
         font-size: 0.82rem;
       }
 
-      .hero-copy,
+      .hero,
       .converter {
         border-radius: 24px;
       }
@@ -850,6 +939,16 @@
       .form-grid,
       .notes {
         grid-template-columns: 1fr;
+      }
+
+      .workbench-header,
+      .dimension-tool-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .dimension-readouts {
+        grid-template-columns: minmax(5.5rem, 1fr) 50px minmax(8rem, 1fr);
       }
 
       .preview-stage {
@@ -869,189 +968,189 @@
     </header>
 
     <section class="hero" aria-labelledby="page-title">
-      <div class="hero-copy">
-        <h1 id="page-title">Recast image formats.</h1>
-        <p class="lead">Drop in JPG, PNG, JPEG, PDF, SVG, HEIC, HEIF, RAW, or TIFF files and export polished web-ready copies without sending your images to a server.</p>
-
-        <div class="feature-strip" aria-label="Converter highlights">
-          <div class="feature">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M5.5 6.2c0-1 .8-1.8 1.8-1.8h9.4c1 0 1.8.8 1.8 1.8v11.6c0 1-.8 1.8-1.8 1.8H7.3c-1 0-1.8-.8-1.8-1.8V6.2Z" stroke="currentColor" stroke-width="1.8"/>
-              <path d="m8.4 15 2.7-3 2.1 2.2 1.1-1.2 2.3 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M9.2 8.4h.1" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-            <div>
-              <strong>Modern image inputs</strong>
-              <span>Handles everyday images plus PDF pages, SVG artwork, HEIC and HEIF photos, and TIFF files.</span>
-            </div>
-          </div>
-          <div class="feature">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M7 7.4h8.8c1.2 0 2.2 1 2.2 2.2v6.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="m15 4.8 3.1 2.6L15 10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M17 16.6H8.2c-1.2 0-2.2-1-2.2-2.2V8.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-              <path d="m9 19.2-3.1-2.6L9 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div>
-              <strong>Batch exports</strong>
-              <span>Convert one file or many. Multiple images and PDF pages are bundled into a ZIP automatically.</span>
-            </div>
-          </div>
-          <div class="feature">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 3.8 6.4 6.2v5.3c0 3.6 2.3 6.9 5.6 8.1 3.3-1.2 5.6-4.5 5.6-8.1V6.2L12 3.8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-              <path d="m9.2 12.1 1.8 1.8 3.9-4.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <div>
-              <strong>No upload required</strong>
-              <span>Everything runs locally in the visitor's browser, ready for a static GitHub Pages site.</span>
-            </div>
-          </div>
-        </div>
-        <p class="author-credit">Made by Angze &quot;Squiddy&quot; Li</p>
+      <h1 id="page-title">Recast image formats.</h1>
+      <p class="lead">Drop in images, choose your output, and export polished web-ready copies directly in your browser.</p>
+      <div class="trust-chips" aria-label="Image Forge trust and workflow highlights">
+        <span class="trust-chip">Private by design</span>
+        <span class="trust-chip">No server upload</span>
+        <span class="trust-chip">Batch conversion</span>
+        <span class="trust-chip">GitHub Pages ready</span>
+        <span class="trust-chip">Local browser processing</span>
       </div>
+    </section>
 
-      <div class="converter" aria-label="Image converter">
-        <div class="dropzone" id="dropzone">
-          <input id="file-input" type="file" multiple accept=".jpg,.jpeg,.png,.pdf,.svg,.heic,.heif,.raw,.dng,.cr2,.cr3,.nef,.arw,.orf,.rw2,.raf,.tif,.tiff,image/jpeg,image/png,image/svg+xml,image/heic,image/heif,image/tiff,application/pdf">
+    <section class="workbench-section" aria-labelledby="workbench-title">
+      <div class="converter workbench" aria-label="Image converter">
+        <div class="workbench-header">
           <div>
-            <div class="upload-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M12 15.5V4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="m7.8 9 4.2-4.2L16.2 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M5 15.7v1.7c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <p class="drop-title">Drop images here</p>
-            <p class="drop-help">Accepts JPG, PNG, JPEG, PDF, SVG, HEIC, HEIF, RAW, and TIFF files.</p>
-            <label class="choose-button" for="file-input">Choose files</label>
+            <h2 class="workbench-title" id="workbench-title">Image Workbench</h2>
+            <p class="workbench-subtitle">Drop images here, choose an output format, and export locally.</p>
           </div>
+          <div class="workbench-mark" aria-hidden="true">I</div>
         </div>
 
-        <div class="file-card" id="file-card">
-          <div>
-            <p class="file-name" id="file-name"></p>
-            <p class="file-meta" id="file-meta"></p>
-          </div>
-          <button class="ghost-button" id="clear-button" type="button">Clear</button>
-        </div>
-
-        <div class="form-grid">
-          <div class="field">
-            <label for="format-select">Export format</label>
-            <select id="format-select">
-              <option value="png">PNG</option>
-              <option value="jpg">JPG</option>
-              <option value="jpeg">JPEG</option>
-              <option value="pdf">PDF</option>
-              <option value="svg">SVG</option>
-              <option value="tif">TIF</option>
-            </select>
-          </div>
-          <div class="field full">
-            <div class="dimension-tool">
-              <div class="dimension-tool-head">
-                <div>
-                  <span class="field-label">Output size</span>
-                  <p class="size-estimate" id="estimated-size">Estimated file size appears after choosing files.</p>
+        <div class="workbench-layout">
+          <div class="upload-column">
+            <div class="dropzone" id="dropzone">
+              <input id="file-input" type="file" multiple accept=".jpg,.jpeg,.png,.webp,.pdf,.svg,.heic,.heif,.raw,.dng,.cr2,.cr3,.nef,.arw,.orf,.rw2,.raf,.tif,.tiff,image/jpeg,image/png,image/webp,image/svg+xml,image/heic,image/heif,image/tiff,application/pdf">
+              <div>
+                <div class="upload-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 15.5V4.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="m7.8 9 4.2-4.2L16.2 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 15.7v1.7c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-1.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
                 </div>
-                <div class="dimension-controls">
-                  <div class="unit-toggle" aria-label="Dimension unit">
-                    <button class="is-active" type="button" data-unit="px" aria-pressed="true">px</button>
-                    <button type="button" data-unit="cm" aria-pressed="false">cm</button>
-                    <button type="button" data-unit="pct" aria-pressed="false">%</button>
+                <p class="drop-title">Drop images here</p>
+                <p class="drop-help">Accepts JPG, PNG, JPEG, WebP, PDF, SVG, HEIC, HEIF, RAW, and TIFF files.</p>
+                <label class="choose-button" for="file-input">Choose files</label>
+              </div>
+            </div>
+
+            <div class="file-card" id="file-card">
+              <div>
+                <p class="file-name" id="file-name"></p>
+                <p class="file-meta" id="file-meta"></p>
+              </div>
+              <button class="ghost-button" id="clear-button" type="button">Clear</button>
+            </div>
+
+            <div class="preview-wrap" aria-label="Image preview">
+              <div class="preview-header">
+                <span>Preview</span>
+                <span id="preview-state">Waiting</span>
+              </div>
+              <div class="preview-stage" id="preview-stage">
+                <div class="empty-preview">Your first converted image will appear here.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-column">
+            <div class="form-grid">
+              <div class="field">
+                <label for="format-select">Export format</label>
+                <select id="format-select">
+                  <option value="png">PNG</option>
+                  <option value="jpg">JPG</option>
+                  <option value="jpeg">JPEG</option>
+                  <option value="webp">WebP</option>
+                  <option value="pdf">PDF</option>
+                  <option value="svg">SVG</option>
+                  <option value="tif">TIF</option>
+                </select>
+              </div>
+              <div class="field full">
+                <div class="dimension-tool">
+                  <div class="dimension-tool-head">
+                    <div>
+                      <span class="field-label">Output size</span>
+                      <p class="size-estimate" id="estimated-size">Estimated file size appears after choosing files.</p>
+                    </div>
+                    <div class="dimension-controls">
+                      <div class="unit-toggle" aria-label="Dimension unit">
+                        <button class="is-active" type="button" data-unit="px" aria-pressed="true">px</button>
+                        <button type="button" data-unit="cm" aria-pressed="false">cm</button>
+                        <button type="button" data-unit="pct" aria-pressed="false">%</button>
+                      </div>
+                    </div>
                   </div>
+
+                  <div class="dimension-body">
+                    <div class="dimension-readouts">
+                      <span class="axis-label">
+                        <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                          <path d="M17 3h6v22h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M8 5v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                          <path d="m4.8 8.2 3.2-3.2 3.2 3.2M4.8 19.8 8 23l3.2-3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Height:
+                      </span>
+                      <button class="aspect-lock-button" id="aspect-lock" type="button" aria-label="Unlock width and height ratio" aria-pressed="true">
+                        <span class="lock-corners" aria-hidden="true"></span>
+                        <span class="lock-icon" aria-hidden="true">
+                          <span class="lock-emoji-on">🔒</span>
+                          <span class="lock-emoji-off">🔓</span>
+                        </span>
+                      </button>
+                      <span class="dimension-input-wrap">
+                        <input id="height-input" type="number" min="1" step="1" placeholder="--" disabled>
+                        <span class="dimension-unit-label" data-unit-label>px</span>
+                      </span>
+                      <span class="axis-label">
+                        <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
+                          <path d="M3 9h22v6H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                          <path d="M5 22h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                          <path d="M8.2 18.8 5 22l3.2 3.2M19.8 18.8 23 22l-3.2 3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        Width:
+                      </span>
+                      <span class="lock-spacer" aria-hidden="true"></span>
+                      <span class="dimension-input-wrap">
+                        <input id="width-input" type="number" min="1" step="1" placeholder="--" disabled>
+                        <span class="dimension-unit-label" data-unit-label>px</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <p class="dimension-help" id="dimension-help">Choose files to see the output width and height.</p>
                 </div>
               </div>
-
-              <div class="dimension-body">
-                <div class="dimension-readouts">
-                  <span class="axis-label">
-                    <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                      <path d="M17 3h6v22h-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                      <path d="M8 5v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                      <path d="m4.8 8.2 3.2-3.2 3.2 3.2M4.8 19.8 8 23l3.2-3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Height:
-                  </span>
-                  <button class="aspect-lock-button" id="aspect-lock" type="button" aria-label="Unlock width and height ratio" aria-pressed="true">
-                    <span class="lock-corners" aria-hidden="true"></span>
-                    <span class="lock-icon" aria-hidden="true">
-                      <span class="lock-emoji-on">🔒</span>
-                      <span class="lock-emoji-off">🔓</span>
-                    </span>
-                  </button>
-                  <span class="dimension-input-wrap">
-                    <input id="height-input" type="number" min="1" step="1" placeholder="--" disabled>
-                    <span class="dimension-unit-label" data-unit-label>px</span>
-                  </span>
-                  <span class="axis-label">
-                    <svg viewBox="0 0 28 28" fill="none" aria-hidden="true">
-                      <path d="M3 9h22v6H3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                      <path d="M5 22h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-                      <path d="M8.2 18.8 5 22l3.2 3.2M19.8 18.8 23 22l-3.2 3.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Width:
-                  </span>
-                  <span class="lock-spacer" aria-hidden="true"></span>
-                  <span class="dimension-input-wrap">
-                    <input id="width-input" type="number" min="1" step="1" placeholder="--" disabled>
-                    <span class="dimension-unit-label" data-unit-label>px</span>
-                  </span>
-                </div>
-              </div>
-
-              <p class="dimension-help" id="dimension-help">Choose files to see the output width and height.</p>
             </div>
-          </div>
-        </div>
 
-        <div class="option-panel">
-          <div class="toggle-row">
-            <label class="check" for="transparent-bg">
-              <input id="transparent-bg" type="checkbox" checked>
-              Keep transparency when possible
-            </label>
-            <label class="check" for="pdf-all-pages">
-              <input id="pdf-all-pages" type="checkbox" checked>
-              Convert every PDF page
-            </label>
-          </div>
-        </div>
+            <div class="option-panel">
+              <div class="toggle-row">
+                <label class="check" for="transparent-bg">
+                  <input id="transparent-bg" type="checkbox" checked>
+                  Keep transparency when possible
+                </label>
+                <label class="check" for="pdf-all-pages">
+                  <input id="pdf-all-pages" type="checkbox" checked>
+                  Convert every PDF page
+                </label>
+              </div>
+            </div>
 
-        <div class="actions">
-          <button class="convert-button" id="convert-button" type="button" disabled>Convert images</button>
-          <button class="ghost-button" id="sample-button" type="button">Try sample image</button>
-        </div>
+            <div class="actions">
+              <button class="convert-button" id="convert-button" type="button" disabled>Convert images</button>
+              <button class="ghost-button" id="sample-button" type="button">Try sample image</button>
+            </div>
 
-        <p class="status" id="status">Choose files to begin.</p>
-
-        <div class="preview-wrap" aria-label="Image preview">
-          <div class="preview-header">
-            <span>Preview</span>
-            <span id="preview-state">Waiting</span>
-          </div>
-          <div class="preview-stage" id="preview-stage">
-            <div class="empty-preview">Your first converted image will appear here.</div>
-          </div>
-        </div>
-
-        <div class="notes">
-          <div class="note">
-            <strong>HEIC and HEIF</strong>
-            <span>Phone photos are decoded in-browser when the visitor's browser and the converter library allow it.</span>
-          </div>
-          <div class="note">
-            <strong>PDF and SVG</strong>
-            <span>PDF pages are rendered to images. SVG exports wrap the rendered image in an SVG file.</span>
-          </div>
-          <div class="note">
-            <strong>RAW files</strong>
-            <span>RAW support is best-effort because many camera RAW formats need native or server-side decoders.</span>
+            <p class="status" id="status">Choose files to begin.</p>
           </div>
         </div>
       </div>
     </section>
+
+    <section class="feature-library" aria-labelledby="feature-title">
+      <div class="feature-library-head">
+        <h2 id="feature-title">Forge Library</h2>
+        <p>Focused tools for format conversion, resizing, batch workflows, and private browser-only processing.</p>
+      </div>
+      <div class="notes">
+        <div class="note">
+          <strong>Format conversion</strong>
+          <span>JPG, PNG, JPEG, WebP, SVG, PDF, TIFF, and HEIC/HEIF where browser support allows.</span>
+        </div>
+        <div class="note">
+          <strong>Resize tools</strong>
+          <span>Pixels, centimetres, percentage, and an aspect-ratio lock for controlled exports.</span>
+        </div>
+        <div class="note">
+          <strong>Batch workflow</strong>
+          <span>Convert multiple files, render PDF pages, and download batch results as a ZIP.</span>
+        </div>
+        <div class="note">
+          <strong>Privacy</strong>
+          <span>No server upload. Image Forge runs locally in your browser.</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>Built by Angze &quot;Squiddy&quot; Li.</span>
+      <span>Image Forge runs locally in your browser. No files are uploaded by this project.</span>
+    </footer>
   </main>
 
   <script>
@@ -1089,7 +1188,7 @@
     const DEFAULT_EXPORT_QUALITY = 0.92;
 
     const supportedExtensions = [
-      "jpg", "jpeg", "png", "pdf", "svg", "heic", "heif", "raw",
+      "jpg", "jpeg", "png", "webp", "pdf", "svg", "heic", "heif", "raw",
       "dng", "cr2", "cr3", "nef", "arw", "orf", "rw2", "raf", "tif", "tiff"
     ];
 
@@ -1289,7 +1388,7 @@
       const validFiles = files.filter((file) => supportedExtensions.includes(getExtension(file.name)));
 
       if (!validFiles.length) {
-        setStatus("<strong>Unsupported file type.</strong> Choose JPG, PNG, JPEG, PDF, SVG, HEIC, HEIF, RAW, or TIFF files.");
+        setStatus("<strong>Unsupported file type.</strong> Choose JPG, PNG, JPEG, WebP, PDF, SVG, HEIC, HEIF, RAW, or TIFF files.");
         return;
       }
 
@@ -1701,6 +1800,10 @@
         return canvasToBlob(canvas, "image/png", 1);
       }
 
+      if (format === "webp") {
+        return canvasToBlob(canvas, "image/webp", quality);
+      }
+
       if (format === "svg") {
         const pngDataUrl = canvas.toDataURL("image/png");
         const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}" viewBox="0 0 ${canvas.width} ${canvas.height}"><image width="${canvas.width}" height="${canvas.height}" href="${pngDataUrl}"/></svg>`;
@@ -1824,6 +1927,9 @@
       }
       if (format === "tif") {
         return "tif";
+      }
+      if (format === "webp") {
+        return "webp";
       }
       return format;
     }
